@@ -5,8 +5,7 @@ const form = document.querySelector(".form");
 const todoInput = document.querySelector(".todo-input");
 const submitTodoBtn = document.querySelector(".submit-todo-btn");
 const clearAllBtn = document.querySelector(".clear-all-btn");
-const checkBtn = document.querySelector(".check-btn");
-const deleteBtn = document.querySelector(".delete-btn");
+const checkAndDeleteBtn = document.querySelector("ul");
 
 function submitTodo(e) {
   e.preventDefault();
@@ -28,10 +27,10 @@ function addTodo(todo) {
   >
     <span class="todo-item display-6">${todo}</span>
     <div class="btn-group">
-      <button class="check-btn btn btn-success">
+      <button name="check-btn" class="check-btn btn btn-success">
         <i class="fas fa-check text-white"></i>
       </button>
-      <button class="delete-btn btn btn-danger ms-2">
+      <button name="delete-btn" class="delete-btn btn btn-danger ms-2">
         <i class="fas fa-trash text-white"></i>
       </button>
     </div>
@@ -41,4 +40,19 @@ function addTodo(todo) {
   ul.appendChild(li);
 }
 
+function checkAndDeleteTodos(e) {
+  if (e.target.name === "check-btn") {
+  } else if (e.target.name === "delete-btn") {
+    deleteTodo(e);
+  }
+}
+
+function deleteTodo(e) {
+  let item = e.target.parentNode;
+
+  item.addEventListener("click", item.parentNode.parentNode.remove());
+}
+
+// event listeners
 form.addEventListener("submit", submitTodo);
+checkAndDeleteBtn.addEventListener("click", checkAndDeleteTodos);

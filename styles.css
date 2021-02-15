@@ -3,3 +3,7 @@
   text-decoration: line-through;
   font-style: italic;
 }
+
+button > i {
+  pointer-events: none;
+}

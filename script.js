@@ -60,6 +60,11 @@ function deleteTodo(e) {
   item.addEventListener("click", item.parentNode.parentNode.remove());
 }
 
+function clearTodo(e) {
+  document.querySelector("ul").innerHTML = "";
+}
+
 // event listeners
 form.addEventListener("submit", submitTodo);
 checkAndDeleteBtn.addEventListener("click", checkAndDeleteTodos);
+clearAllBtn.addEventListener("click", clearTodo);

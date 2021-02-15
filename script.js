@@ -42,9 +42,16 @@ function addTodo(todo) {
 
 function checkAndDeleteTodos(e) {
   if (e.target.name === "check-btn") {
+    checkTodo(e);
   } else if (e.target.name === "delete-btn") {
     deleteTodo(e);
   }
+}
+
+function checkTodo(e) {
+  let item = e.target.parentNode;
+
+  item.addEventListener("click", item.parentNode.classList.add("cross-out"));
 }
 
 function deleteTodo(e) {
